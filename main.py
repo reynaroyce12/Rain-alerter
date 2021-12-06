@@ -8,6 +8,8 @@ load_dotenv()
 api_key = os.getenv('api_key')
 account_sid = os.getenv('account_sid')
 auth_token = os.getenv('auth_token')
+from_number = os.getenv('from_number')
+to_number = os.getenv('to_number')
 
 params = {
     "lat": 10.786730,
@@ -33,8 +35,8 @@ if will_rain:
     message = client.messages \
         .create(
             body="It's going to rain today. Don't forget the umbrella! ☂️",
-            from_='+12284324829',
-            to='+919656817180'
+            from_=f"{from_number}",
+            to=f"{to_number}"'
         )
 
     print(message.status)
